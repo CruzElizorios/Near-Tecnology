@@ -62,11 +62,11 @@ ul{
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    width: 100%;
 }
 .boton-menu.active{
     background-color: var(--clr-white);
     color: var(--clr-main);
-    width: 100%;
     position: relative;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;

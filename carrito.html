@@ -30,73 +30,12 @@
     <main>
         <h2 class="TituloPrincipal">Mis compras</h2>
         <section class="contenedor-carrito">
-            <p class="carritoVacio"> Tu carrito esta vacío <i class="bi bi-emoji-dizzy"></i></p>
-            <div class="carrito-productos  ">
-                <div class="carrito-producto">
-                    <img class="carrito-producto-imagen" src="./assets/gabinetes/Gabinete_ASUS_ROG_STRIX_Helios_Aluminum_Black_RGB_81c9ec14-grn.jpg" alt="">
-                    <div class="carrito-producto-titulo">
-                        <small>Titulo</small>
-                        <h4>Producto 01</h4>
-                    </div>
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>1</p>
-                    </div>
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$54.555</p>
-                    </div>
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$65.118</p>
-                    </div>
-                    <button class="carrito-producto-delete"><i class="bi bi-trash3-fill"></i></button>
-                </div>
-
-                <div class="carrito-producto">
-                    <img class="carrito-producto-imagen" src="./assets/gabinetes/Gabinete_ASUS_ROG_STRIX_Helios_Aluminum_Black_RGB_81c9ec14-grn.jpg" alt="">
-                    <div class="carrito-producto-titulo">
-                        <small>Titulo</small>
-                        <h4>Producto 02</h4>
-                    </div>
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>2</p>
-                    </div>
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$8.555</p>
-                    </div>
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$24.987</p>
-                    </div>
-                    <button class="carrito-producto-delete"><i class="bi bi-trash3-fill"></i></button>
-                </div>
-
-                <div class="carrito-producto">
-                    <img class="carrito-producto-imagen" src="./assets/gabinetes/Gabinete_ASUS_ROG_STRIX_Helios_Aluminum_Black_RGB_81c9ec14-grn.jpg" alt="">
-                    <div class="carrito-producto-titulo">
-                        <small>Titulo</small>
-                        <h4>Producto 03</h4>
-                    </div>
-                    <div class="carrito-producto-cantidad">
-                        <small>Cantidad</small>
-                        <p>3</p>
-                    </div>
-                    <div class="carrito-producto-precio">
-                        <small>Precio</small>
-                        <p>$89.555</p>
-                    </div>
-                    <div class="carrito-producto-subtotal">
-                        <small>Subtotal</small>
-                        <p>$71.987</p>
-                    </div>
-                    <button class="carrito-producto-delete"><i class="bi bi-trash3-fill"></i></button>
-                </div>
+            <p class="carritoVacio" id="carritoVacio"> Tu carrito esta vacío <i class="bi bi-emoji-dizzy"></i></p>
+            <div class="carrito-productos disable" id="carrito-productos">
+                <!-- los productos se muestran con el js -->
             </div>
 
-            <div class="carrito-acciones ">
+            <div class="carrito-acciones disable" id="carrito-acciones">
                 <div class="carrito-acciones-left">
                     <button class="carrito-acciones-vaciar">vaciar carrito</button>
                 </div>
@@ -108,10 +47,10 @@
                     <button class="carrito-acciones-comprar">Ir al Pago</button>                   
                 </div>
             </div>
-            <p class="carritoComprado disable"> Que disfrutes tu compra!!! <i class="bi bi-emoji-sunglasses"></i></p>
+            <p class="carritoComprado disable" id="carritoComprado"> Que disfrutes tu compra!!! <i class="bi bi-emoji-sunglasses"></i></p>
         </section>
     </main>
 
-    <script src="./js/main.js"></script>
+    <script src="./js/carrito.js"></script>
 </body>
 </html>

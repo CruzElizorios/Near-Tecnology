@@ -18,10 +18,10 @@
         </header>
         <nav>
             <ul>
-                <li><button class="boton-menu botonCategoria active"> Todos los productos</button></li>
-                <li><button class="boton-menu botonCategoria "><i class="bi bi-hand-index"></i> Notebook</button></li>
-                <li><button class="boton-menu botonCategoria"><i class="bi bi-pc"></i> Gabinetes</button></li>
-                <li><button class="boton-menu botonCategoria "><i class="bi bi-display"></i> Monitores</button></li>
+                <li><button class="boton-menu botonCategoria active" id="todos"> Todos los productos</button></li>
+                <li><button class="boton-menu botonCategoria" id="notebook"><i class="bi bi-hand-index"></i> Notebook</button></li>
+                <li><button class="boton-menu botonCategoria" id="gabinetes"><i class="bi bi-pc"></i> Gabinetes</button></li>
+                <li><button class="boton-menu botonCategoria" id="monitores"><i class="bi bi-display"></i> Monitores</button></li>
                 <li><a class="boton-menu botonCarrito" href="./carrito.html"><i class="bi bi-cart4"></i> Carrito <span class="indicadorNumero">0</span></a></li>
             </ul>
         </nav>
@@ -31,58 +31,9 @@
 
     </aside>
     <main>
-        <h2 class="TituloPrincipal">Todos los productos</h2>
-        <section class="contenedor-producto">
-            <div class="producto">
-                <img class="producto-imagen" src="./assets/gabinetes/Gabinete_ASUS_ROG_STRIX_Helios_Aluminum_Black_RGB_81c9ec14-grn.jpg" alt="">
-                <div class="producto-detalles">
-                    <h3 class="producto-titulo">
-                        titulo 01
-                    </h3>
-                    <p class="producto-precio">precio $30.000</p>
-                    <button class="producto-agregar">agregar</button>
-                </div>
-            </div>
-            <div class="producto">
-                <img class="producto-imagen" src="./assets/gabinetes/Gabinete_ASUS_ROG_STRIX_Helios_Aluminum_Black_RGB_81c9ec14-grn.jpg" alt="">
-                <div class="producto-detalles">
-                    <h3 class="producto-titulo">
-                        titulo 01
-                    </h3>
-                    <p class="producto-precio">precio $30.000</p>
-                    <button class="producto-agregar">agregar</button>
-                </div>
-            </div>
-            <div class="producto">
-                <img class="producto-imagen" src="./assets/monitores/compragamer_Imganen_general_8683_Monitor_LG_LED_19___19M38A-B_VGA_4607eba4-grn.jpg" alt="">
-                <div class="producto-detalles">
-                    <h3 class="producto-titulo">
-                        titulo 01
-                    </h3>
-                    <p class="producto-precio">precio $30.000</p>
-                    <button class="producto-agregar">agregar</button>
-                </div>
-            </div>
-            <div class="producto">
-                <img class="producto-imagen" src="./assets/notebook/compragamer_Imganen_general_35231_Notebook_Dell_Inspiron_3515_15.6__FHD_Ryzen_5_3450U_8GB_256GB_SSD_NVMe_W11_7f5502cd-grn.jpg" class="producto-detalles">
-                <div class="producto-detalles">
-                    <h3 class="producto-titulo">
-                        titulo 01
-                    </h3>
-                    <p class="producto-precio">precio $30.000</p>
-                    <button class="producto-agregar">agregar</button>
-                </div>
-            </div>
-            <div class="producto">
-                <img class="producto-imagen" src="./assets/notebook/compragamer_Imganen_general_35231_Notebook_Dell_Inspiron_3515_15.6__FHD_Ryzen_5_3450U_8GB_256GB_SSD_NVMe_W11_7f5502cd-grn.jpg" alt="">
-                <div class="producto-detalles">
-                    <h3 class="producto-titulo">
-                        titulo 01
-                    </h3>
-                    <p class="producto-precio">precio $30.000</p>
-                    <button class="producto-agregar">agregar</button>
-                </div>
-            </div>
+        <h2 class="TituloPrincipal" id="tituloPrincipal">Todos los productos</h2>
+        <section id="contenedor-producto" class="contenedor-producto">
+            <!-- card -->
         </section>
     </main>
 
