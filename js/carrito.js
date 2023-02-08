@@ -75,5 +75,4 @@ function eliminarDelCarrito(e) {
     
     localStorage.setItem("productos-en-carrito", JSON.stringify(carrito))
 }
-
 // falta corregir que al quitar productos del carrito muestre vacio, en vez mostrar contenedor acciones; hacer que el boton vaciar quite todos los productos y que se sume todo el total de los precios
