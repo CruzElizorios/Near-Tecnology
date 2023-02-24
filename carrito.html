@@ -18,7 +18,7 @@
         </header>
         <nav>
             <ul>
-                <li><a class="boton-menu botonVolverComprar" href="./index.html"><i class="bi bi-chevron-double-left"></i> Volver a Comprar</a></li>
+                <li><a class="boton-menu botonVolverComprar" href="./index.html"><i class="bi bi-chevron-double-left"></i> Volver</a></li>
                 <li><a class="boton-menu botonCarrito actives" href="./carrito.html"><i class="bi bi-cart4"></i> Carrito</a></li>
             </ul>
         </nav>
@@ -37,15 +37,20 @@
 
             <div class="carrito-acciones disable" id="carrito-acciones">
                 <div class="carrito-acciones-left">
-                    <button class="carrito-acciones-vaciar">vaciar carrito</button>
+                    <button class="carrito-acciones-vaciar" id="carrito-acciones-vaciar">vaciar carrito</button>
                 </div>
                 <div class="carrito-acciones-right">
                     <div class="carrito-acciones-total">
-                        <p>Total</p>
-                        <p id="total"><i class="bi bi-currency-dollar"></i>5.000</p>
+                        <p>Total: <i class="bi bi-currency-dollar"></i></p>
+                        <p id="total">
+                            <!-- se completa con js -->
+                        </p>
                     </div> 
-                    <button class="carrito-acciones-comprar">Ir al Pago</button>                   
+                    <button class="carrito-acciones-comprar" id="carrito-acciones-comprar">Ir al Pago</button>                   
                 </div>
+            </div>
+            <div class="carritoLoader disable" id="loader">
+                <div class="loader" ></div>
             </div>
             <p class="carritoComprado disable" id="carritoComprado"> Que disfrutes tu compra!!! <i class="bi bi-emoji-sunglasses"></i></p>
         </section>

@@ -103,8 +103,8 @@ const productosVenta = [
 const contenedorProductos = document.getElementById("contenedor-producto");
 const botonesCategoria = document.querySelectorAll(".botonCategoria");
 const tituloEncabezado = document.getElementById("tituloPrincipal");
-let botonesAgregar = document.querySelectorAll(".producto-agregar ");
-
+let botonesAgregar = document.querySelectorAll(".producto-agregar");
+let contador = document.getElementById("indicadorContador");
 
 
  function mostrarProductos(productosElegidos){
@@ -116,10 +116,10 @@ let botonesAgregar = document.querySelectorAll(".producto-agregar ");
          // .classList.add sirve para agregarle una clase a un elemento de html
          div.classList.add("producto");
          div.innerHTML = `
-         <img class="producto-imagen" src="${producto.imagen}" alt="$">
+         <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombreProducto}">
          <div class="producto-detalles">
              <h3 class="producto-titulo">${producto.nombreProducto}</h3>
-             <p class="producto-precio">precio $${producto.precio}</p>
+             <p class="producto-precio">precio <i class="bi bi-currency-dollar"></i>${producto.precio}</p>
              <button class="producto-agregar" id="${producto.id}">agregar</button>
          </div>
          `
@@ -156,6 +156,7 @@ let carritoLocalSto = localStorage.getItem("productos-en-carrito")
 if (carritoLocalSto) {
 
     carrito = JSON.parse(carritoLocalSto);
+    actualizarContador();
 } else {
     carrito = [];
 }
@@ -180,9 +181,14 @@ function agregarCarrito(e) {
         productoAgregado.cantidad = 1//se agrega una nueva caracteristica para que se pueda sumar cada vez que entra en el carrito ese producto
         carrito.push(productoAgregado);
     }
-
     localStorage.setItem("productos-en-carrito",JSON.stringify(carrito))
-
+    
+    actualizarContador();
 
    console.log(carrito)
+}
+
+function actualizarContador() {
+    let contadorNuevo = carrito.reduce((acc,productosVenta) => acc + productosVenta.cantidad,0);
+    contador.innerText = contadorNuevo;
 }

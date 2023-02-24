@@ -2,18 +2,22 @@ let carrito = localStorage.getItem("productos-en-carrito");
 
 carrito =JSON.parse(carrito);
 
-const padreCarritoVacio = document.querySelector("#carritoVacio");
-const padreCarritoProductos = document.querySelector("#carrito-productos");
-const padreCarritoAcciones = document.querySelector("#carrito-acciones");
-const padreCarritoComprado = document.querySelector("#carritoComprado");
+const padreCarritoVacio = document.getElementById("carritoVacio");
+const padreCarritoProductos = document.getElementById("carrito-productos");
+const padreCarritoAcciones = document.getElementById("carrito-acciones");
+const padreCarritoComprado = document.getElementById("carritoComprado");
 
 let btnEliminar = document.querySelectorAll(".carrito-producto-delete")
+const btnVaciar = document.getElementById("carrito-acciones-vaciar")
+const btnTotal = document.getElementById("total")
+const btnComprar = document.getElementById("carrito-acciones-comprar")
+const divCargando = document.getElementById("loader")
 
 
 
 function cargarProductosCarrito() {
     
-    if(carrito){
+    if(carrito && carrito.length > 0){
     
         padreCarritoVacio.classList.add("disable");
         padreCarritoProductos.classList.remove("disable");
@@ -37,11 +41,11 @@ function cargarProductosCarrito() {
                 </div>
                 <div class="carrito-producto-precio">
                     <small>Precio</small>
-                    <p>$${producto.precio}</p>
+                    <p><i class="bi bi-currency-dollar"></i>${producto.precio}</p>
                 </div>
                 <div class="carrito-producto-subtotal">
                     <small>Subtotal</small>
-                    <p>$${producto.precio * producto.cantidad}</p>
+                    <p><i class="bi bi-currency-dollar"></i>${producto.precio * producto.cantidad}</p>
                 </div>
                 <button class="carrito-producto-delete" id="${producto.id}"><i class="bi bi-trash3-fill"></i></button>
             `
@@ -55,9 +59,13 @@ function cargarProductosCarrito() {
         padreCarritoComprado.classList.add("disable");
     }
     actualizarBtnEliminar();
+    sumarTotal();
 }
 
 cargarProductosCarrito();
+
+btnVaciar.addEventListener("click", vaciarCarrito);
+btnComprar.addEventListener("click", comprar);
 
 function actualizarBtnEliminar() {
     btnEliminar = document.querySelectorAll(".carrito-producto-delete");
@@ -75,4 +83,30 @@ function eliminarDelCarrito(e) {
     
     localStorage.setItem("productos-en-carrito", JSON.stringify(carrito))
 }
+
+function vaciarCarrito() {
+    carrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));
+    cargarProductosCarrito();
+}
+function sumarTotal(params) {
+    btnTotal.innerText = carrito.reduce((acc,productosVenta) => acc + productosVenta.cantidad * productosVenta.precio,0);
+}
+function comprar() {
+    carrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));
+    cargando();
+}
 // falta corregir que al quitar productos del carrito muestre vacio, en vez mostrar contenedor acciones; hacer que el boton vaciar quite todos los productos y que se sume todo el total de los precios
+let tiempoCarga;
+function cargando() {
+    padreCarritoVacio.classList.add("disable");
+    padreCarritoProductos.classList.add("disable");
+    padreCarritoAcciones.classList.add("disable");
+    divCargando.classList.remove("disable")
+    tiempoCarga= setTimeout(mostrarComprado,3500);
+}
+function mostrarComprado() {
+    divCargando.classList.add("disable");
+    padreCarritoComprado.classList.remove("disable");
+}

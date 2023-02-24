@@ -19,8 +19,6 @@ a{
 }
 /* variables colores css */
 :root{
-    /* --clr-main:#4b33a8; violteta oscuro */
-    /* --clr-main:#762253; violeta mas claro*/
     /* --clr-main:#977d0c; marroncito*/
     --clr-main:#97380c;
     --clr-white:#ececec;
@@ -259,7 +257,7 @@ main{
 }
 .carrito-acciones-total{
     display: flex;
-    gap: 1rem;
+    gap: 0px;
     background-color: var(--clr-gray);
     color: var(--clr-main);
     padding: 1rem;
@@ -267,7 +265,25 @@ main{
     border-bottom-left-radius: 1rem;
     font-size: 1rem;
 }
+.carritoLoader{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader {
+    /* border: 16px solid Lightgrey;  */
+    border-top: 16px solid #d18616; /* Blue #3498db */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 .disable{
     display:none;
 }
-
