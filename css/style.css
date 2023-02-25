@@ -48,6 +48,7 @@ aside{
 ul{
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 0.5rem;
 }
 .boton-menu{
@@ -72,9 +73,11 @@ ul{
 .boton-menu > i.bi-hand-index {
     transform: rotate(90deg);
 }
+
 .botonCarrito{
     margin-top: 2rem;
 }
+
 .indicadorNumero{
     background-color: var(--clr-white);
     color: var(--clr-main);
@@ -95,38 +98,6 @@ ul{
 }
 
 .boton-menu.active::after{
-    content: '';
-    position: absolute;
-    background-color: transparent;
-    width: 1rem;
-    height: 2rem;
-    top: 100%;
-    right: 0;
-    border-top-right-radius: 1rem;
-    box-shadow: 0 -1rem 0 var(--clr-white);
-}
-/*se quita el widht por problemas con los bordes con la etiqueta a de carrito*/
-
-.boton-menu.actives{
-    background-color: var(--clr-white);
-    color: var(--clr-main);
-    position: relative;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-}
-.boton-menu.actives::before{
-    content: '';
-    position: absolute;
-    background-color: transparent;
-    width: 1rem;
-    height: 2rem;
-    bottom: 100%;
-    right: 0;
-    border-bottom-right-radius: 1rem;
-    box-shadow: 0 1rem 0 var(--clr-white);
-}
-
-.boton-menu.actives::after{
     content: '';
     position: absolute;
     background-color: transparent;
@@ -274,8 +245,7 @@ main{
     justify-content: center;
 }
 .loader {
-    /* border: 16px solid Lightgrey;  */
-    border-top: 16px solid #d18616; /* Blue #3498db */
+    border-top: 16px solid #d18616; /* Blue #3498db*/
     border-radius: 50%;
     width: 120px;
     height: 120px;

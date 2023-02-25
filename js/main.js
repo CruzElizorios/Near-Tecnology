@@ -23,7 +23,6 @@ let contador = document.getElementById("indicadorContador");
 
     productosElegidos.forEach(producto => {
          const div = document.createElement("div");
-         // .classList.add sirve para agregarle una clase a un elemento de html
          div.classList.add("producto");
          div.innerHTML = `
          <img class="producto-imagen" src="${producto.imagen}" alt="${producto.nombreProducto}">
@@ -43,12 +42,10 @@ let contador = document.getElementById("indicadorContador");
 botonesCategoria.forEach(boton => {
     
     boton.addEventListener("click", (e) =>{
-        //se quita la clase active de los botones para que no queden todos activados,es decir, en color blanco
         botonesCategoria.forEach(boton => {boton.classList.remove("active")});
         e.currentTarget.classList.add("active");
         if (e.currentTarget.id != "todos") {
             const productosCategoria = productosVenta.find(producto => producto.categoria === e.currentTarget.id);
-            //string.charAt(0).toUpperCase() + string.slice(1) sirve para poner la primera letra en mayuscula
             tituloEncabezado.innerText = productosCategoria.categoria.charAt(0).toUpperCase() + productosCategoria.categoria.slice(1);
 
             const productosBoton = productosVenta.filter(producto => producto.categoria === e.currentTarget.id);
@@ -60,7 +57,7 @@ botonesCategoria.forEach(boton => {
     })
 })
 
-// let carrito = []
+
 let carrito;
 let carritoLocalSto = localStorage.getItem("productos-en-carrito")
 if (carritoLocalSto) {
@@ -88,7 +85,7 @@ function agregarCarrito(e) {
         const index = carrito.findIndex(producto => producto.id ===botonId)
         carrito[index].cantidad++
     }else {
-        productoAgregado.cantidad = 1//se agrega una nueva caracteristica para que se pueda sumar cada vez que entra en el carrito ese producto
+        productoAgregado.cantidad = 1
         carrito.push(productoAgregado);
     }
     localStorage.setItem("productos-en-carrito",JSON.stringify(carrito))
@@ -109,9 +106,9 @@ function agregarCarrito(e) {
             title: 'titulosweet'
         }
       })
-}
+};
 
 function actualizarContador() {
     let contadorNuevo = carrito.reduce((acc,productosVenta) => acc + productosVenta.cantidad,0);
     contador.innerText = contadorNuevo;
-}
+};
