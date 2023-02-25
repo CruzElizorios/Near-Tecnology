@@ -16,16 +16,16 @@ const divCargando = document.getElementById("loader")
 
 
 function cargarProductosCarrito() {
-    
+
     if(carrito && carrito.length > 0){
-    
+
         padreCarritoVacio.classList.add("disable");
         padreCarritoProductos.classList.remove("disable");
         padreCarritoAcciones.classList.remove("disable");
         padreCarritoComprado.classList.add("disable");
-        
+
         padreCarritoProductos.innerHTML = "";
-    
+
         carrito.forEach(producto => {
             const div =document.createElement("div")
             div.classList.add("carrito-producto");
@@ -52,7 +52,7 @@ function cargarProductosCarrito() {
             padreCarritoProductos.append(div);
         });
     }else{
-    
+
         padreCarritoVacio.classList.remove("disable");
         padreCarritoProductos.classList.add("disable");
         padreCarritoAcciones.classList.add("disable");
@@ -69,7 +69,7 @@ btnComprar.addEventListener("click", comprar);
 
 function actualizarBtnEliminar() {
     btnEliminar = document.querySelectorAll(".carrito-producto-delete");
-    
+
     btnEliminar.forEach(btn => {
         btn.addEventListener("click",eliminarDelCarrito)
     });
@@ -80,14 +80,39 @@ function eliminarDelCarrito(e) {
     const index = carrito.findIndex(producto => producto.id === botonId);
     carrito.splice(index,1)
     cargarProductosCarrito();
-    
+
     localStorage.setItem("productos-en-carrito", JSON.stringify(carrito))
 }
 
 function vaciarCarrito() {
-    carrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));
-    cargarProductosCarrito();
+    Swal.fire({
+        title: 'Seguro que quieres vaciar?',
+        icon: 'warning',
+        width: '350px',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'si, vaciar!',
+        cancelButtonText: 'cancelar',
+        customClass:{
+            title: 'titulosweetCarrito'
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            carrito.length = 0;
+            localStorage.setItem("productos-en-carrito", JSON.stringify(carrito));
+            cargarProductosCarrito();
+        Swal.fire({
+            icon: 'success',
+            title: 'carrito vaciado con éxito',
+            width: '350px',
+            confirmButtonColor: '#d18616',
+            customClass:{
+                title: 'titulosweetCarrito'
+            }
+        })
+        }
+    })
 }
 function sumarTotal(params) {
     btnTotal.innerText = carrito.reduce((acc,productosVenta) => acc + productosVenta.cantidad * productosVenta.precio,0);
@@ -109,4 +134,6 @@ function cargando() {
 function mostrarComprado() {
     divCargando.classList.add("disable");
     padreCarritoComprado.classList.remove("disable");
+    // probando integrar mercadopago forma basica
+    window.location.href = "https://mpago.la/1nL8YvS";
 }
