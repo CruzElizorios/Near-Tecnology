@@ -135,5 +135,5 @@ function mostrarComprado() {
     divCargando.classList.add("disable");
     padreCarritoComprado.classList.remove("disable");
     // probando integrar mercadopago forma basica
-    window.location.href = "https://mpago.la/1nL8YvS";
+    // window.location.href = "https://mpago.la/1nL8YvS";
 }
